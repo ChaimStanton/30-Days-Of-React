@@ -1,116 +1,156 @@
 // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 // To get the root element from the HTML document
-import asabenehImage from './images/asabeneh.jpg'
+import asabenehImage from "./images/asabeneh.jpg";
+import cssLogo from "./images/css_logo.png";
+import htmlLogo from "./images/html_logo.png";
+import reactLogo from "./images/react_logo.png";
+import { MdVerifiedUser } from "react-icons/md";
+import { BiTime } from "react-icons/bi";
 
-// to import the doSomeMath from the math.js with or without extension
-import doSomeMath from './math.js'
-
-// to import the other modules
-// since these modules were not exported as default we have to desctructure
-import { addTwo, multiply, subtract } from './math.js'
-
-import * as everything from './math.js'
-console.log(addTwo(5, 5))
-console.log(doSomeMath.addTwo(5, 5))
-console.log(everything)
-// JSX element, header
-
-
-// JSX element, header
-const welcome = 'Welcome to 30 Days Of React'
-const title = 'Getting Started React'
-const subtitle = 'JavaScript Library'
-const author = {
-  firstName: 'Asabeneh',
-  lastName: 'Yetayeh',
-}
-const date = 'Oct 2, 2020'
-
-// JSX element, header
-const header = (
-  <header>
-    <div className='header-wrapper'>
-      <h1>{welcome}</h1>
-      <h2>{title}</h2>
-      <h3>{subtitle}</h3>
-      <p>
-        Instructor: {author.firstName} {author.lastName}
-      </p>
-      <small>Date: {date}</small>
-    </div>
-  </header>
-)
-
-const numOne = 3
-const numTwo = 2
-
-const result = (
-  <p>
-    {numOne} + {numTwo} = {numOne + numTwo}
-  </p>
-)
-
-const yearBorn = 1820
-const currentYear = new Date().getFullYear()
-const age = currentYear - yearBorn
-const personAge = (
-  <p>
-    {' '}
-    {author.firstName} {author.lastName} is {age} years old
-  </p>
-)
-
-// JSX element, main
-const techs = ['HTML', 'CSS', 'JavaScript']
-const techsFormatted = techs.map((tech) => <li>{tech}</li>)
-
-const user = (
+const nameAndPicture = (
   <div>
-    <img src={asabenehImage} alt='asabeneh image' />
+    <img
+      src={asabenehImage}
+      alt="Asabeneh Yetayeh"
+      style={{
+        borderRadius: "50%",
+        padding: "10px",
+        height: "400px",
+        width: "400px",
+      }}
+    />
+    <h1>Asabeneh Yetayeh</h1>
+    <p style={{ display: "inline-block" }}>Senior Developer, Finland</p>
+    <MdVerifiedUser
+      fill="blue"
+      style={{ paddingLeft: "5px", fontSize: "2em" }}
+    />
   </div>
-)
+);
 
-// JSX element, main
-const main = (
-  <main>
-    <div className='main-wrapper'>
-      <p>
-        Prerequisite to get started{' '}
-        <strong>
-          <em>react.js</em>
-        </strong>
-        :
-      </p>
-      <ul>{techsFormatted}</ul>
-      {result}
-      {personAge}
-      {user}
+const skills = [
+  "HTML",
+  "CSS",
+  "Sass",
+  "Js",
+  "Recact",
+  "Reducx",
+  "node",
+  "MongoDB",
+  "Python",
+  "Flask",
+  "Django",
+  "NumPy",
+  "Pandas",
+  "Data",
+  "Analysis",
+  "MySQL",
+  "GraphQL",
+  "D3.js",
+  "Gatsby",
+  "Docker",
+  "Heroku",
+  "Git",
+];
+
+const skillsFormatted = skills.map((skill) => {
+  return (
+    <li
+      style={{
+        backgroundColor: "#40FF33",
+        color: "white",
+        paddingBlock: "5px",
+        paddingInline: "10px",
+        display: "inline-block",
+        cursor: "pointer",
+        borderRadius: "16px",
+        margin: "5px",
+      }}
+    >
+      {skill}
+    </li>
+  );
+});
+
+const skillsSection = (
+  <div className="skillSection">
+    <h1>Skills</h1>
+    <ul>{skillsFormatted}</ul>
+    <BiTime
+      style={{
+        fontSize: "30px",
+        display: "inline-block",
+        color: "grey",
+        paddingInline: "5px",
+      }}
+    />
+    <p style={{ display: "inline-block" }}>Joined on Aug 30, 2020</p>
+  </div>
+);
+
+const userInfoTop = (
+  <div style={{ paddingLeft: "10px" }}>
+    {nameAndPicture}
+    {skillsSection}
+  </div>
+);
+
+const frontEndIconStyle = {
+  height: "30%",
+  width: "30%",
+};
+
+const frontEndLogos = (
+  <div style={{ background: "#DCDCDC" }}>
+    <h1 style={{ textAlign: "center" }}>Front End Technologies </h1>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        paddingInline: "20%",
+      }}
+    >
+      <img style={frontEndIconStyle} src={cssLogo} alt="css logo" />
+      <img style={frontEndIconStyle} src={htmlLogo} alt="html logo" />
+      <img style={frontEndIconStyle} src={reactLogo} alt="react logo" />
     </div>
-  </main>
-)
+  </div>
+);
 
-const copyRight = 'Copyright 2020'
-
-// JSX element, footer
-const footer = (
-  <footer>
-    <div className='footer-wrapper'>
-      <p>{copyRight}</p>
+const subscribeBox = (
+  <div style={{ background: "#080808" }}>
+    <div
+      style={{
+        background: "#03ff89",
+        borderRadius: "50px",
+        textAlign: "center",
+        display: "block",
+        paddingBlock: "2em",
+      }}
+    >
+      <h2>Subscribe</h2>
+      <b>Sign up with your email adress to subscribe </b>
+      <div>
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+      </div>
+      <button>Click here to subscribe</button>
     </div>
-  </footer>
-)
+  </div>
+);
 
 // JSX element, app
 const app = (
-  <div className='app'>
-    {header}
-    {main}
-    {footer}
+  <div className="app">
+    {userInfoTop}
+    {frontEndLogos}
+    {subscribeBox}
   </div>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(app, rootElement)
+ReactDOM.render(app, rootElement);
