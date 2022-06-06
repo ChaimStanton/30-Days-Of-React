@@ -9,115 +9,114 @@ import reactLogo from "./images/react_logo.png";
 import { MdVerifiedUser } from "react-icons/md";
 import { BiTime } from "react-icons/bi";
 
-const nameAndPicture = (
-  <div>
-    <img
-      src={asabenehImage}
-      alt="Asabeneh Yetayeh"
-      style={{
-        borderRadius: "50%",
-        padding: "10px",
-        height: "400px",
-        width: "400px",
-      }}
-    />
-    <h1>Asabeneh Yetayeh</h1>
-    <p style={{ display: "inline-block" }}>Senior Developer, Finland</p>
-    <MdVerifiedUser
-      fill="blue"
-      style={{ paddingLeft: "5px", fontSize: "2em" }}
-    />
-  </div>
-);
-
-const skills = [
-  "HTML",
-  "CSS",
-  "Sass",
-  "Js",
-  "Recact",
-  "Reducx",
-  "node",
-  "MongoDB",
-  "Python",
-  "Flask",
-  "Django",
-  "NumPy",
-  "Pandas",
-  "Data",
-  "Analysis",
-  "MySQL",
-  "GraphQL",
-  "D3.js",
-  "Gatsby",
-  "Docker",
-  "Heroku",
-  "Git",
-];
-
-const skillsFormatted = skills.map((skill) => {
-  return (
-    <li
-      style={{
-        backgroundColor: "#40FF33",
-        color: "white",
-        paddingBlock: "5px",
-        paddingInline: "10px",
-        display: "inline-block",
-        cursor: "pointer",
-        borderRadius: "16px",
-        margin: "5px",
-      }}
-    >
-      {skill}
-    </li>
+const UserInfoTop = () => {
+  const nameAndPicture = (
+    <div>
+      <img
+        src={asabenehImage}
+        alt="Asabeneh Yetayeh"
+        style={{
+          borderRadius: "50%",
+          padding: "10px",
+          height: "400px",
+          width: "400px",
+        }}
+      />
+      <h1>Asabeneh Yetayeh</h1>
+      <p style={{ display: "inline-block" }}>Senior Developer, Finland</p>
+      <MdVerifiedUser
+        fill="blue"
+        style={{ paddingLeft: "5px", fontSize: "2em" }}
+      />
+    </div>
   );
-});
 
-const skillsSection = (
-  <div className="skillSection">
-    <h1>Skills</h1>
-    <ul>{skillsFormatted}</ul>
-    <BiTime
-      style={{
-        fontSize: "30px",
-        display: "inline-block",
-        color: "grey",
-        paddingInline: "5px",
-      }}
-    />
-    <p style={{ display: "inline-block" }}>Joined on Aug 30, 2020</p>
-  </div>
-);
+  const skills = (function IIFE() {
+    const skillsList = [
+      "HTML",
+      "CSS",
+      "Sass",
+      "Js",
+      "Recact",
+      "Reducx",
+      "node",
+      "MongoDB",
+      "Python",
+      "Flask",
+      "Django",
+      "NumPy",
+      "Pandas",
+      "Data",
+      "Analysis",
+      "MySQL",
+      "GraphQL",
+      "D3.js",
+      "Gatsby",
+      "Docker",
+      "Heroku",
+      "Git",
+    ];
+    return skillsList.map((skill) => {
+      return (
+        <li
+          style={{
+            backgroundColor: "#40FF33",
+            color: "white",
+            paddingBlock: "5px",
+            paddingInline: "10px",
+            display: "inline-block",
+            cursor: "pointer",
+            borderRadius: "16px",
+            margin: "5px",
+          }}
+        >
+          {skill}
+        </li>
+      );
+    });
+  })();
 
-const userInfoTop = (
-  <div style={{ paddingLeft: "10px" }}>
-    {nameAndPicture}
-    {skillsSection}
-  </div>
-);
-
-const frontEndIconStyle = {
-  height: "30%",
-  width: "30%",
+  return (
+    <div className="skillSection">
+      {nameAndPicture}
+      <h1>Skills</h1>
+      <ul>{skills}</ul>
+      <BiTime
+        style={{
+          fontSize: "30px",
+          display: "inline-block",
+          color: "grey",
+          paddingInline: "5px",
+        }}
+      />
+      <p style={{ display: "inline-block" }}>Joined on Aug 30, 2020</p>
+    </div>
+  );
 };
 
-const frontEndLogos = (
-  <div style={{ background: "#DCDCDC" }}>
-    <h1 style={{ textAlign: "center" }}>Front End Technologies </h1>
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        paddingInline: "20%",
-      }}
-    >
-      <img style={frontEndIconStyle} src={cssLogo} alt="css logo" />
-      <img style={frontEndIconStyle} src={htmlLogo} alt="html logo" />
-      <img style={frontEndIconStyle} src={reactLogo} alt="react logo" />
+const frontEndLogos = (function IIFE() {
+  const frontEndIconStyle = {
+    height: "30%",
+    width: "30%",
+  };
+
+  return (
+    <div style={{ background: "#DCDCDC" }}>
+      <h1 style={{ textAlign: "center" }}>Front End Technologies </h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          paddingInline: "20%",
+        }}
+      >
+        <img style={frontEndIconStyle} src={cssLogo} alt="css logo" />
+        <img style={frontEndIconStyle} src={htmlLogo} alt="html logo" />
+        <img style={frontEndIconStyle} src={reactLogo} alt="react logo" />
+      </div>
     </div>
-  </div>
-);
+  );
+})();
 
 const subscribeBox = (
   <div style={{ background: "#080808" }}>
@@ -145,7 +144,7 @@ const subscribeBox = (
 // JSX element, app
 const app = (
   <div className="app">
-    {userInfoTop}
+    <UserInfoTop />
     {frontEndLogos}
     {subscribeBox}
   </div>
