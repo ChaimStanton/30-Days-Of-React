@@ -25,7 +25,8 @@ function ColorBar(props) {
 export function SelectionOfColors(props) {
   let list = [];
   for (let i = 0; i < props.number; i++) {
-    list.push(<ColorBar backgroundColor={hexColorGenerator()} />);
+    let color = hexColorGenerator();
+    list.push(<ColorBar key={color} backgroundColor={color} />);
   }
   return list;
 }

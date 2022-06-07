@@ -7,8 +7,8 @@ import { SelectionOfColors } from "./ColorBar";
 
 const App = () => (
   <div>
-    {" "}
-    <FrontEndLogos /> <SelectionOfColors number={5} />{" "}
+    <FrontEndLogos />
+    <SelectionOfColors number={5} />
   </div>
 );
 
