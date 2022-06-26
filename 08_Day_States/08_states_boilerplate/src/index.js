@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import asabenehImage from "./images/asabeneh.jpg";
 
-// Fuction to show month date year
+// Function to show month date year
 
 // User Card Component
 const UserCard = ({ user: { firstName, lastName, image } }) => (
@@ -140,9 +140,10 @@ class App extends React.Component {
   state = {
     count: 0,
     styles: {
-      backgroundColor: "",
-      color: "",
+      backgroundColor: "white",
+      color: "black",
     },
+    styleState: "normal",
   };
   showDate = (time) => {
     const months = [
@@ -179,7 +180,26 @@ class App extends React.Component {
   greetPeople = () => {
     alert("Welcome to 30 Days Of React Challenge, 2020");
   };
-  changeBackground = () => {};
+  changeBackground = () => {
+    // PLAY HERE
+    if (this.state.styleState === "normal") {
+      this.setState({
+        styles: {
+          backgroundColor: "black",
+          color: "white",
+        },
+        styleState: "dark",
+      });
+    } else {
+      this.setState({
+        styles: {
+          backgroundColor: "white",
+          color: "black",
+        },
+        styleState: "normal",
+      });
+    }
+  };
   render() {
     const data = {
       welcome: "Welcome to 30 Days Of React",
@@ -196,7 +216,7 @@ class App extends React.Component {
     const user = { ...data.author, image: asabenehImage };
 
     return (
-      <div className="app">
+      <div className="app" style={this.state.styles}>
         {this.state.backgroundColor}
         <Header data={data} />
         <Main
