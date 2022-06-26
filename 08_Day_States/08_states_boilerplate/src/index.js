@@ -1,6 +1,7 @@
 // index.js
 import React from "react";
 import ReactDOM from "react-dom";
+import { CountrySection } from "./CountrySection";
 import asabenehImage from "./images/asabeneh.jpg";
 
 // Function to show month date year
@@ -229,6 +230,7 @@ class App extends React.Component {
           minusOne={this.minusOne}
           count={this.state.count}
         />
+        <CountrySection />
         <Footer date={new Date()} />
       </div>
     );
