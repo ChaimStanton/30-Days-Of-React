@@ -1,17 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// index.js
+import React from "react";
+import ReactDOM from "react-dom";
+class App extends React.Component {
+  // declaring state
+  state = {
+    count: 0,
+  };
+  // method which add one to the state
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+  addOne = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  // method which subtract one to the state
+  minusOne = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
+  render() {
+    // accessing the state value
+    const count = this.state.count;
+    return (
+      <div className="App">
+        <h1>{count} </h1>
+
+        <div>
+          <button className="btn btn-add" onClick={this.addOne}>
+            +1
+          </button>{" "}
+          <button className="btn btn-minus" onClick={this.minusOne}>
+            -1
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
